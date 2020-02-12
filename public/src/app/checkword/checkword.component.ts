@@ -58,7 +58,6 @@ export class CheckwordComponent implements OnInit {
         pyword: this.test,
         printout: this.printOut
       }
-      // this.getApisFromService()
     })
   }
   CheckWord() {
@@ -100,7 +99,6 @@ export class CheckwordComponent implements OnInit {
           this.printOut[i].push(this.sorted[i][0])
           x--
         }
-        // return false
       } else if (this.sorted[i][1] = PyCount) {
         this.test = true
         let x = this.sorted[i][1]

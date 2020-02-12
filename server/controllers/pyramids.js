@@ -6,7 +6,7 @@ const mongoose = require('mongoose'),
     module.exports = {
 
         index: function (request, response) {
-            pyramid.find()
+            pyramid.find().sort('word')
                 .then(pyramids => response.json({ results: pyramids }))
                 .catch(err => response.json({ error: err.error }))
         },
