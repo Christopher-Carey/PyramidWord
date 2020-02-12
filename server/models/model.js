@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
-const RestfulSchema = new mongoose.Schema({
-    name: String,
-    title: String,
-    description:String,
-    completed: Boolean
+const PyramidSchema = new mongoose.Schema({
+    word: String,
+    pyword: Boolean
 })
-mongoose.model('restful', RestfulSchema);
+mongoose.model('pyramid', PyramidSchema);

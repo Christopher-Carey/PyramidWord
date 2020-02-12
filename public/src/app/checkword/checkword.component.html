@@ -1,1 +1,15 @@
-<p>checkword works!</p>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <form (submit)="CheckWord()">
+                <!-- <input class="form-control" type="text"> -->
+                <input class="form-control" type="text" name="PyWord" required minlength="2" [(ngModel)]="PyWord">
+
+                <input class="btn-dark" type="submit">
+            </form>
+        </div>
+    </div>
+    <div class="col">
+        <h1>{{PyWord}}</h1>
+    </div>
+</div>
