@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { CheckwordComponent } from './checkword/checkword.component';
+import { WordlistComponent } from './wordlist/wordlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CheckwordComponent
+    CheckwordComponent,
+    WordlistComponent
   ],
   imports: [
     BrowserModule,
