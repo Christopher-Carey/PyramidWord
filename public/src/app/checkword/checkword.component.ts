@@ -10,70 +10,68 @@ import { ApiService } from '../api.service'
 export class CheckwordComponent implements OnInit {
   PyWord = ''
   test;
-  WordList =[]
+  test2;
+  WordList = []
   sorted = []
   printOut = []
-  Word={
+  Word = {
     word: '',
-    pyword: Boolean
+    pyword: Boolean,
+    printout: []
   }
+  DbWord;
+
 
   constructor(private _apiService: ApiService) { }
 
   ngOnInit() {
+    console.log(this.DbWord)
     this.getApisFromService()
-    this.Word ={
-      word: '',
-      pyword: Boolean
+    this.Word = {
+      word: "",
+      pyword: Boolean,
+      printout: []
     }
     console.log(this.PyWord)
 
   }
-
-  getApisFromService(){
+  getApisFromService() {
     let observable = this._apiService.getApis();
     observable.subscribe(results => {
-      console.log("yay",results)
+      console.log("yay", results)
       this.WordList = results['results']
       this._apiService.getApis()
     })
   }
-  ApiFromService(id){
-    let observable = this._apiService.getApi(id);
-    observable.subscribe(results => {
-      console.log("yay",results)
-      this.WordList = results['results']
-      this._apiService.getApi(id)
-    })
-  }
-  createApiFromService(){
+
+  createApiFromService() {
+    this.Word = {
+      word: this.PyWord,
+      pyword: this.test,
+      printout: this.printOut
+    }
     let observable = this._apiService.createApi(this.Word);
     observable.subscribe(results => {
-      console.log("yay",results)
-      this.Word={
-        word:'',
-        pyword:this.test
+      console.log("yay", results)
+      this.Word = {
+        word: this.PyWord,
+        pyword: this.test,
+        printout: this.printOut
       }
-      this.getApisFromService()
+      // this.getApisFromService()
     })
   }
-
-
-
-
-
-  getWords(){
-    let observable = this._apiService.getApis();
-    observable.subscribe(results => {
-      console.log("yay",results)
-      this.WordList = results['results']
-      this._apiService.getApis()
-    })
-  }
-
-
   CheckWord() {
+    //Check database To see if it has been checked before
+    for (var i = 0; i < this.WordList.length; i++) {
+      if (this.WordList[i].word == this.PyWord) {
+        this.DbWord = this.WordList[i]
+        console.log(this.DbWord)
+        return this.DbWord
+      }
+    }
     this.test;
+    this.test2;
     this.sorted = []
     this.printOut = []
     let count = {}
@@ -95,13 +93,14 @@ export class CheckwordComponent implements OnInit {
     for (let i = 0; i < this.sorted.length; i++) {
       if (this.sorted[i][1] != PyCount) {
         this.test = false
+        this.test2 = false
         let x = this.sorted[i][1]
         this.printOut.push([])
         while (x != 0) {
           this.printOut[i].push(this.sorted[i][0])
           x--
         }
-        return false
+        // return false
       } else if (this.sorted[i][1] = PyCount) {
         this.test = true
         let x = this.sorted[i][1]
@@ -113,5 +112,9 @@ export class CheckwordComponent implements OnInit {
         PyCount++
       }
     }
+    if(this.test2 == false){
+      this.test = false
+    }
+    this.createApiFromService()
   }
 }

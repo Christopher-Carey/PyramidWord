@@ -1,27 +1,45 @@
 <div class="row">
     <div class="col">
         <div class="card">
-            <form (submit)="createApiFromService()">
-                <!-- <input class="form-control" type="text"> -->
-                <!-- <input class="form-control" type="text" name="PyWord" required minlength="2" [(ngModel)]="PyWord"> -->
-                <input class="form-control" type="text" name="word" required minlength="2"[(ngModel)]="Word.word" #word="ngModel">
-                
+            <h2>Type a Word Below to see if it's a pyramid word</h2>
+            <form (submit)="CheckWord()">
+                <input class="form-control" type="text" name="PyWord" required minlength="2" [(ngModel)]="PyWord">
                 <input class="btn-dark" type="submit">
             </form>
         </div>
-    </div>
-    <div class="col">
-        <div *ngIf ="test == true || test == false" class="card">
-            <h1 class="card-header">{{PyWord}}</h1>
-            <!-- <h3 style="color: green;" *ngIf ="test">Yes, This word is a Pyramid Word</h3> -->
-            <h3 style="color: green;" *ngIf ="test ; else elseBlock">Yes, This word is a Pyramid Word</h3>
-            <!-- <h3 style="color: red;" *ngIf ="!test">Sorry, This is not a Pyramid Word</h3> -->
-            
+        <!-- <h1>{{DbWord.word}}</h1> -->
 
+    </div>
+   
+
+
+    <div class="col">
+        <div *ngIf ="test == true || test == false ; else elseCard" class="card">
+            <h1 class="card-header">{{PyWord}}</h1>
+            <h3 style="color: green;" *ngIf ="test ; else elseBlock">Yes, This word is a Pyramid Word</h3>
+            <h3 style="color: red;">Sorry, This is not a Pyramid Word</h3>
             <ng-template #elseBlock>
                 <h3 style="color: red;">Sorry, This is not a Pyramid Word</h3>
             </ng-template>
             <h1 *ngFor="let x of printOut">{{x}}</h1>
         </div>
     </div>
+    <ng-template  #elseCard>
+        <div *ngIf = "DbWord" class="col">
+            <div class="card">
+                <h1 class="card-header">{{DbWord.word}}</h1>
+                <h3 style="color: green;" *ngIf ="DbWord.pyword ; else elseBlock">Yes, This word is a Pyramid Word</h3>
+                <ng-template #elseBlock>
+                    <h3 style="color: red;">Sorry, This is not a Pyramid Word</h3>
+                </ng-template>
+                <h1 *ngFor="let x of DbWord.printout">{{x}}</h1>
+            </div>
+
+
+            <h1 *ngIf = "DbWord">{{DbWord.word}}</h1>
+
+        </div>
+
+    </ng-template>
+
 </div>
