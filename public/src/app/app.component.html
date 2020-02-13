@@ -1,60 +1,38 @@
 <div class="container">
-  <!-- <nav class="navbar navbar-expand-sm  navbar-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <i class="fas fa-3x fa-play"></i>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['']">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['List']">Word Lists</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['About']">About</a>
-      </li>
-    </ul>
-  </nav> -->
-
   <nav class="navbar navbar-expand-sm  navbar-dark">
     <i class="fas fa-3x fa-play navbar-brand"></i>
     <div class="container">
       <div></div>
-
-        <!-- <a class="navbar-brand" [routerLink]="['']">Home</a> -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar1">
-            <ul class="navbar-nav nav nav-fill w-100">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['List']">Word Lists</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['About']">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['']">Home</a>
-                </li>
-            </ul>
-        </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar1">
+        <ul class="navbar-nav nav nav-fill w-100">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['List']">Word Lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['About']">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
-
-
-
-
-
+  </nav>
   <div class="jumbotron">
     <div class="ddd">
       <h1>Pyramid Word</h1>
-      <small>By: Christopher Carey</small><br>
+      <hr>
+      <small>By: Christopher Carey <a href="https://drive.google.com/open?id=15H9jkhXICL6geOUrK8kdqHynYrhk847p">View Resume</a></small><br>
       <small>Email: <a href="mailto:ccarey40@gmail.com">ccarey40@gmail.com</a></small><br>
-      <small>GitHub Code: <a href="https://github.com/Christopher-Carey/PyramidWord">github.com/Christopher-Carey</a></small><br>
-      <small>Hosted on AWS on Windows server with IIS</small>
+      <!-- <small><a href="https://drive.google.com/open?id=15H9jkhXICL6geOUrK8kdqHynYrhk847p">View Resume</a></small><br> -->
+      <small>GitHub Code: <a
+          href="https://github.com/Christopher-Carey/PyramidWord">github.com/Christopher-Carey</a></small><br>
+      <small>Hosted on AWS with Windows server using IIS</small>
 
     </div>
-  </div>  
+  </div>
   <router-outlet></router-outlet>
-
 </div>

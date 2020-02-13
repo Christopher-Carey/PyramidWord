@@ -2,6 +2,9 @@
     padding: 20px;
     font-size: 20px;
     color: #2F4858;
+    box-shadow: 2px 2px 5px 2px rgba(255, 153, 0, 0.486);
+    margin-bottom: 100px;
+
 }
 .fa-2x{
     margin-left: 20px;

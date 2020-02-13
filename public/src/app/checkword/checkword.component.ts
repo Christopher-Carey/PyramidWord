@@ -9,25 +9,24 @@ import { ApiService } from '../api.service'
 })
 export class CheckwordComponent implements OnInit {
   Inputword = ''
-  test;
-  test2;
+  IfPyWordBool;
   WordList = []
   sorted = []
   printOut = []
-  Word = {
+  WordModel = {
     word: '',
     pyword: Boolean,
     printout: []
   }
-  DbWord;
+  WordFromDb;
 
 
   constructor(private _apiService: ApiService) { }
 
   ngOnInit() {
-    console.log(this.DbWord)
+    console.log(this.WordFromDb)
     this.getApisFromService()
-    this.Word = {
+    this.WordModel = {
       word: "",
       pyword: Boolean,
       printout: []
@@ -45,17 +44,17 @@ export class CheckwordComponent implements OnInit {
   }
 
   createApiFromService() {
-    this.Word = {
+    this.WordModel = {
       word: this.Inputword,
-      pyword: this.test,
+      pyword: this.IfPyWordBool,
       printout: this.printOut
     }
-    let observable = this._apiService.createApi(this.Word);
+    let observable = this._apiService.createApi(this.WordModel);
     observable.subscribe(results => {
       console.log("yay", results)
-      this.Word = {
+      this.WordModel = {
         word: this.Inputword,
-        pyword: this.test,
+        pyword: this.IfPyWordBool,
         printout: this.printOut
       }
     })
@@ -64,13 +63,12 @@ export class CheckwordComponent implements OnInit {
     //Check database To see if it has been checked before
     for (var i = 0; i < this.WordList.length; i++) {
       if (this.WordList[i].word == this.Inputword) {
-        this.DbWord = this.WordList[i]
-        console.log(this.DbWord)
-        return this.DbWord
+        this.WordFromDb = this.WordList[i]
+        console.log(this.WordFromDb)
+        return this.WordFromDb
       }
     }
-    this.test;
-    this.test2;
+    this.IfPyWordBool;
     this.sorted = []
     this.printOut = []
     let count = {}
@@ -91,16 +89,16 @@ export class CheckwordComponent implements OnInit {
     let PyCount = 1
     for (let i = 0; i < this.sorted.length; i++) {
       if (this.sorted[i][1] != PyCount) {
-        this.test = false
-        this.test2 = false
+        this.IfPyWordBool = false
         let x = this.sorted[i][1]
         this.printOut.push([])
         while (x != 0) {
           this.printOut[i].push(this.sorted[i][0])
           x--
         }
+        PyCount++
       } else if (this.sorted[i][1] = PyCount) {
-        this.test = true
+        this.IfPyWordBool = true
         let x = this.sorted[i][1]
         this.printOut.push([])
         while (x != 0) {
@@ -109,9 +107,6 @@ export class CheckwordComponent implements OnInit {
         }
         PyCount++
       }
-    }
-    if(this.test2 == false){
-      this.test = false
     }
     this.createApiFromService()
   }
