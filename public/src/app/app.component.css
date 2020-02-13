@@ -8,7 +8,7 @@
     text-align: center;
 }
 small{
-    font-size: medium;
+    font-size: 15px;
 }
 .navbar{
     background-color: #2F4858
@@ -24,4 +24,7 @@ a,li{
     color: #FF9900;
     display: inline-block;
     transform: rotate(-90deg);
+}
+a{
+    color: #2f2f2f;
 }
