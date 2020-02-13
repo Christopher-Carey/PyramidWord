@@ -2,7 +2,7 @@
     <div class="card">
         <h2>Type a Word Below to see if it's a pyramid word</h2>
         <form (submit)="CheckWord()">
-            <input class="form-control" type="text" name="Inputword" required minlength="2" [(ngModel)]="Inputword">
+            <input class="form-control" type="text" name="EnteredWord" required minlength="2" [(ngModel)]="EnteredWord">
             <input class="btn-dark" type="submit" value="Check Word">
         </form>
     </div>

@@ -8,6 +8,7 @@ import { ApiService } from '../api.service'
   styleUrls: ['./checkword.component.css']
 })
 export class CheckwordComponent implements OnInit {
+  EnteredWord = ''
   Inputword = ''
   IfPyWordBool;
   WordList = []
@@ -60,6 +61,8 @@ export class CheckwordComponent implements OnInit {
     })
   }
   CheckWord() {
+    this.Inputword = this.EnteredWord.toLowerCase();
+
     //Check database To see if it has been checked before
     for (var i = 0; i < this.WordList.length; i++) {
       if (this.WordList[i].word == this.Inputword) {
