@@ -1,42 +1,37 @@
-<div class="row">
-  <div class="col">
-    <div class="card">
-      <h3 class="card-header">Pyramid Words</h3>
-      <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th>Word</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let x of WordList">
-            <td *ngIf="x.pyword == true">{{x.word}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
+<div class="col">
+  <div class="card">
+    <h3 class="card-header">Pyramid Words</h3>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Word</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of WordList">
+          <td *ngIf="x.pyword == true">{{x.word}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="col">
-    <div class="card">
-      <h3 class="card-header">Not Pyramid Words</h3>
-        <table class="table table-dark table-striped">
-          <thead>
-            <tr>
-              <th>Word</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-            <tr *ngFor="let x of WordList">
-              <td *ngIf="x.pyword == false">{{x.word}}</td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
 
 
-
+</div>
+<div class="col">
+  <div class="card">
+    <h3 class="card-header">Not Pyramid Words</h3>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Word</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <tr *ngFor="let x of WordList">
+          <td *ngIf="x.pyword == false">{{x.word}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

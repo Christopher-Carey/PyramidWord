@@ -8,7 +8,7 @@ import { ApiService } from '../api.service'
   styleUrls: ['./checkword.component.css']
 })
 export class CheckwordComponent implements OnInit {
-  PyWord = ''
+  Inputword = ''
   test;
   test2;
   WordList = []
@@ -32,7 +32,7 @@ export class CheckwordComponent implements OnInit {
       pyword: Boolean,
       printout: []
     }
-    console.log(this.PyWord)
+    console.log(this.Inputword)
 
   }
   getApisFromService() {
@@ -46,7 +46,7 @@ export class CheckwordComponent implements OnInit {
 
   createApiFromService() {
     this.Word = {
-      word: this.PyWord,
+      word: this.Inputword,
       pyword: this.test,
       printout: this.printOut
     }
@@ -54,7 +54,7 @@ export class CheckwordComponent implements OnInit {
     observable.subscribe(results => {
       console.log("yay", results)
       this.Word = {
-        word: this.PyWord,
+        word: this.Inputword,
         pyword: this.test,
         printout: this.printOut
       }
@@ -63,7 +63,7 @@ export class CheckwordComponent implements OnInit {
   CheckWord() {
     //Check database To see if it has been checked before
     for (var i = 0; i < this.WordList.length; i++) {
-      if (this.WordList[i].word == this.PyWord) {
+      if (this.WordList[i].word == this.Inputword) {
         this.DbWord = this.WordList[i]
         console.log(this.DbWord)
         return this.DbWord
@@ -75,11 +75,11 @@ export class CheckwordComponent implements OnInit {
     this.printOut = []
     let count = {}
     //Break string into letter count
-    for (let i = 0; i < this.PyWord.length; i++) {
-      if (count[this.PyWord[i]] == null) {
-        count[this.PyWord[i]] = 1
+    for (let i = 0; i < this.Inputword.length; i++) {
+      if (count[this.Inputword[i]] == null) {
+        count[this.Inputword[i]] = 1
       } else {
-        count[this.PyWord[i]] = (count[this.PyWord[i]] + 1)
+        count[this.Inputword[i]] = (count[this.Inputword[i]] + 1)
       }
     }
     //Make Array and sort it
