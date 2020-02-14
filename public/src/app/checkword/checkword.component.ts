@@ -62,6 +62,7 @@ export class CheckwordComponent implements OnInit {
         printout: this.printOut
       }
     })
+    this.getApisFromService()
     this.EndTime = performance.now();
     this.RunTime = this.EndTime - this.StartTime
 
