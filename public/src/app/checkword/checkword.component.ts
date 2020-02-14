@@ -20,6 +20,9 @@ export class CheckwordComponent implements OnInit {
     printout: []
   }
   WordFromDb;
+  StartTime;
+  EndTime;
+  RunTime;
 
 
   constructor(private _apiService: ApiService) { }
@@ -59,8 +62,12 @@ export class CheckwordComponent implements OnInit {
         printout: this.printOut
       }
     })
+    this.EndTime = performance.now();
+    this.RunTime = this.EndTime - this.StartTime
+
   }
   CheckWord() {
+    this.StartTime = performance.now();
     this.Inputword = this.EnteredWord.toLowerCase();
 
     //Check database To see if it has been checked before
@@ -68,6 +75,11 @@ export class CheckwordComponent implements OnInit {
       if (this.WordList[i].word == this.Inputword) {
         this.WordFromDb = this.WordList[i]
         console.log(this.WordFromDb)
+        this.EndTime = performance.now();
+        this.RunTime = this.EndTime - this.StartTime
+
+        
+
         return this.WordFromDb
       }
     }
@@ -112,5 +124,6 @@ export class CheckwordComponent implements OnInit {
       }
     }
     this.createApiFromService()
+
   }
 }
