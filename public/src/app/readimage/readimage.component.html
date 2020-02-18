@@ -1,0 +1,33 @@
+    <div class="col">
+        <div class="card">
+            <h2>Let's Check and Image</h2>
+            <span>Download <a href="https://drive.google.com/open?id=1sKvavwJfK17PP5T6SqpxZG_8xqiwHoCb">Sample</a></span>
+            <span>Download <a href="hhttps://drive.google.com/open?id=1jiylpah5CCsgKlGt_tDVOGDbaB8OO2zU">Sample</a> </span>            
+            <textarea *ngIf="TextOutput" name="" id="" cols="30" rows="10">{{TextOutput}}</textarea>
+            <h1></h1>            
+            <input class="btn btn-dark" type="file" (change)="Upload($event)">
+            <form (submit)="test()">
+                <button *ngIf="File" class="btn btn-dark" type="submit">
+                    <div *ngIf="spinner" class="spinner-border spinner-border-sm"></div>
+                    <span *ngIf="!spinner">Read Image</span>
+                </button>
+                <!-- <input *ngIf="File" class="btn btn-dark" type="submit" value="Read Image"> -->
+            </form>
+            <form (submit)="CheckWord()">
+                <input class="btn btn-dark" *ngIf="TextOutput" type="submit" value="Check Image Words">
+            </form>
+        </div>
+    </div>
+    <div class="col">
+        <div *ngFor=" let x of WordList" class="card">
+            <h1 class="card-header">{{x.results.word}}</h1>
+            <h3 style="color: green;" *ngIf="x.results.pyword ; else elseBlock">Yes, This word is a Pyramid Word</h3>
+            <!-- <h3 style="color: red;">Sorry, This is not a Pyramid Word</h3> -->
+            <ng-template #elseBlock>
+                <h3 style="color: red;">Sorry, This is not a Pyramid Word</h3>
+            </ng-template>
+            <h1 *ngFor="let i of x.results.printout">{{i}}</h1>
+    
+            
+        </div>
+    </div>

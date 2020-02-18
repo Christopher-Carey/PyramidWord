@@ -64,11 +64,14 @@ export class CheckwordComponent implements OnInit {
     })
     this.getApisFromService()
     this.EndTime = performance.now();
+    console.log(this.EndTime)
+
     this.RunTime = this.EndTime - this.StartTime
 
   }
   CheckWord() {
     this.StartTime = performance.now();
+    console.log(this.StartTime)
     this.Inputword = this.EnteredWord.toLowerCase();
 
     //Check database To see if it has been checked before
@@ -77,6 +80,7 @@ export class CheckwordComponent implements OnInit {
         this.WordFromDb = this.WordList[i]
         console.log(this.WordFromDb)
         this.EndTime = performance.now();
+        console.log(this.EndTime)
         this.RunTime = this.EndTime - this.StartTime
         return this.WordFromDb
       }
@@ -101,8 +105,8 @@ export class CheckwordComponent implements OnInit {
     //Go through array to see if it forms a pyramid
     let PyCount = 1
     for (let i = 0; i < this.sorted.length; i++) {
-      console.log(PyCount)
-      console.log(this.sorted[i][1])
+      // console.log(PyCount)
+      // console.log(this.sorted[i][1])
       if (this.sorted[i][1] != PyCount) {
         this.IfPyWordBool = false
         let x = this.sorted[i][1]

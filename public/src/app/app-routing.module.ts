@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CheckwordComponent } from './checkword/checkword.component';
 import { WordlistComponent } from './wordlist/wordlist.component';
 import { AboutComponent } from './about/about.component';
+import { ReadimageComponent } from './readimage/readimage.component';
+
 
 
 
@@ -21,5 +23,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [CheckwordComponent,WordlistComponent,AboutComponent]
+export const routingComponents = [CheckwordComponent,WordlistComponent,AboutComponent,ReadimageComponent]
 
